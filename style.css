@@ -1,0 +1,21 @@
+body {
+  background-image: url("https://i.ytimg.com/vi/rWWIwYwmx6A/hqdefault.jpg");
+  background-color: green;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#header {
+width: 1024px;
+height: auto;
+display: block;
+margin: auto;
+}
+#logo {
+  max-width: 200px;
+  max-width: 200px;
+  display: block;
+    margin: auto;
+    width: 50%;
+}
+}
