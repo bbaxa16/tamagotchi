@@ -68,14 +68,21 @@ const tamagotchi2 = {
     const setIntervalHungry = setInterval(function() { hungerTimer(tamagotchi2);
     if(tamagotchi2.foodInTummy === 0){
       clearInterval(setIntervalHungry);
-      alert(tamagotchi2.name + " ran out of food in their tummy!");
+      alert(tamagotchi2.name + " is too hungry to go on!");
     }
 }, 6000);
-
-
-    //setInterval(function() { yawnTimer(tamagotchi2); }, 10000);
-    //setInterval(function() { sickTimer(tamagotchi2); }, 25000);
-    //clearInterval();
+  const setIntervalRest = setInterval(function() { yawnTimer(tamagotchi2);
+    if(tamagotchi2.restedness === 0){
+      clearInterval(setIntervalRest);
+      alert(tamagotchi2.name + " is too tired to go on!")
+    }
+  }, 10000);
+  const setIntervalSick = setInterval(function() { sickTimer(tamagotchi2);
+    if(tamagotchi2.health === 0){
+      clearInterval(setIntervalSick);
+      alert(tamagotchi2.name + " is too sick to go on!")
+    }
+  }, 25000);
   }
 };
 
@@ -85,10 +92,14 @@ const player = {
     console.log("Hi my name is " + this.name);
   },
   feedTamagotchi(){
-    tamagotchi1.foodInTummy = tamagotchi1.foodInTummy + 1;
-    console.log(tamagotchi1.name + ": Food in tummy: " + tamagotchi1.foodInTummy);
+    if (tamagotchi === tamagotchi1){
+      tamagotchi1.foodInTummy = tamagotchi1.foodInTummy + 1;
+      console.log(tamagotchi1.name + ": Food in tummy: " + tamagotchi1.foodInTummy);
+    }
+    else if(tamagotchi === tamagotchi2){
     tamagotchi2.foodInTummy = tamagotchi2.foodInTummy + 1;
     console.log(tamagotchi2.name + ": Food in tummy: " + tamagotchi2.foodInTummy);
+    } 
   },
   medicateTamagotchi(tamagotchi){
     if(tamagotchi === tamagotchi1){
@@ -136,9 +147,8 @@ function sickTimer(tamagotchi){
     tamagotchi2.puke();
   };
 }
-// setInterval(function() { hungerTimer(tamagotchi1); }, 6000);
 tamagotchi1.start();
-//tamagotchi2.start();
+tamagotchi2.start();
 // yawnTimer(()=>{
 //   tamagotchi1.yawn();
 //   tamagotchi2.yawn();
