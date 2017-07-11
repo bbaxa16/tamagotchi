@@ -23,11 +23,22 @@ const tamagotchi1 = {
     const setIntervalHungry = setInterval(function() { hungerTimer(tamagotchi1);
     if(tamagotchi1.foodInTummy === 0){
       clearInterval(setIntervalHungry);
-      alert(tamagotchi1.name + " ran out of food in their tummy!");
+      alert(tamagotchi1.name + " is too hungry to go on!");
     }
 }, 6000);
-    //setInterval(function() { yawnTimer(tamagotchi1); }, 10000);
-    //setInterval(function() { sickTimer(tamagotchi1); }, 25000);
+
+    const setIntervalRest = setInterval(function() { yawnTimer(tamagotchi1);
+    if(tamagotchi1.restedness === 0){
+      clearInterval(setIntervalRest);
+      alert(tamagotchi1.name + " is too tired to go on!")
+    }
+     }, 10000);
+    const setIntervalSick = setInterval(function() { sickTimer(tamagotchi1);
+    if(tamagotchi1.health === 0){
+      clearInterval(setIntervalSick);
+      alert(tamagotchi1.name + " is too sick to go on!")
+    }
+    }, 25000);
 
   }
 };
@@ -127,7 +138,7 @@ function sickTimer(tamagotchi){
 }
 // setInterval(function() { hungerTimer(tamagotchi1); }, 6000);
 tamagotchi1.start();
-tamagotchi2.start();
+//tamagotchi2.start();
 // yawnTimer(()=>{
 //   tamagotchi1.yawn();
 //   tamagotchi2.yawn();
