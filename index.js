@@ -87,7 +87,7 @@ const tamagotchi2 = {
 };
 
 const player = {
-  name: "Leah",
+  name: prompt('What\'s your user name?, Name'),
   sayName(){
     console.log("Hi my name is " + this.name);
   },
@@ -99,7 +99,7 @@ const player = {
     else if(tamagotchi === tamagotchi2){
     tamagotchi2.foodInTummy = tamagotchi2.foodInTummy + 1;
     console.log(tamagotchi2.name + ": Food in tummy: " + tamagotchi2.foodInTummy);
-    } 
+    }
   },
   medicateTamagotchi(tamagotchi){
     if(tamagotchi === tamagotchi1){
@@ -147,8 +147,9 @@ function sickTimer(tamagotchi){
     tamagotchi2.puke();
   };
 }
-tamagotchi1.start();
-tamagotchi2.start();
+player.sayName();
+//document.getElementById('start').onclick = tamagotchi1.start;
+//tamagotchi2.start();
 // yawnTimer(()=>{
 //   tamagotchi1.yawn();
 //   tamagotchi2.yawn();
